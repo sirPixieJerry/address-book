@@ -3,19 +3,40 @@ import { mount } from '@vue/test-utils';
 
 import SubmitButton from './SubmitButton.vue';
 
-const renderComponet = (overrides?: any) => {
+const renderComponent = (overrides?: any) => {
   const props = {
-    label: 'test-label',
+    label: 'label',
     ...overrides,
   };
   return mount(SubmitButton, { props: props });
 };
 
 describe('When the SubmitButton is ', () => {
-  describe('and a label text is provided.', () => {
+  describe('and a label prop is provided.', () => {
     it('Then it should display the correct label text.', () => {
-      const wrapper = renderComponet();
+      const wrapper = renderComponent({ label: 'test-label' });
       expect(wrapper.text()).toContain('test-label');
+    });
+  });
+
+  describe('and a disabled prop is not provided.', () => {
+    it('Then it should not disable the button.', () => {
+      const wrapper = renderComponent();
+      expect(wrapper.attributes('disabled')).toBe(undefined);
+    });
+  });
+
+  describe('and a disabled prop "true" is provided.', () => {
+    it('Then it should disable the button.', () => {
+      const wrapper = renderComponent({ disabled: 'true' });
+      expect(wrapper.attributes('disabled')).toBe('');
+    });
+  });
+
+  describe('and a disabled prop "false" is provided.', () => {
+    it('Then it should not disable the button.', () => {
+      const wrapper = renderComponent();
+      expect(wrapper.attributes('disabled')).toBe(undefined);
     });
   });
 });

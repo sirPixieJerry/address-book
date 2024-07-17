@@ -4,6 +4,7 @@ import { addRippleEffect } from './utils';
 
 defineProps<{
   label: string;
+  disabled?: boolean;
 }>();
 
 const buttonRef = ref<HTMLButtonElement | null>(null);
@@ -16,7 +17,17 @@ const handleClick = (event: MouseEvent): void => {
 </script>
 
 <template>
-  <button type="submit" @click="handleClick" ref="buttonRef">
+  <button
+    v-if="disabled"
+    type="submit"
+    @click="handleClick"
+    ref="buttonRef"
+    class="disabled"
+    disabled
+  >
+    {{ label }}
+  </button>
+  <button v-else type="submit" @click="handleClick" ref="buttonRef">
     {{ label }}
   </button>
 </template>
@@ -47,7 +58,12 @@ button {
   outline: none;
 }
 
-button:hover {
+button.disabled {
+  background-color: rgba(255, 255, 255, 0.12);
+  cursor: not-allowed;
+}
+
+button:hover:not([disabled]) {
   background-color: rgb(66, 165, 245);
 }
 </style>
