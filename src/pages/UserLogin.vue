@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import SubmitButton from '../components/common/SubmitButton';
-import FormInput from '../components/common/FormInput';
+import { FormInput, SubmitButton } from '../components';
 
 const username = ref('');
 const password = ref('');
