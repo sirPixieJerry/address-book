@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { FormHelperText, FormInput, SubmitButton } from '../components';
+import { FormHelperText, FormInput, SubmitButton } from '../common';
 
 const username = ref('');
 const password = ref('');
@@ -8,6 +8,8 @@ const password = ref('');
 const isDisabled = computed(() => {
   return username.value === '' || password.value === '';
 });
+
+const isUserNameOrPasswordInvalid = false;
 
 const onSubmit = (event: Event) => {
   event.preventDefault();
@@ -37,7 +39,10 @@ const onSubmit = (event: Event) => {
         v-model="password"
         :required="true"
       />
-      <FormHelperText text="I am important!" />
+      <FormHelperText
+        text="I am important!"
+        v-if="isUserNameOrPasswordInvalid"
+      />
       <SubmitButton label="login" :disabled="isDisabled" />
     </form>
   </div>
