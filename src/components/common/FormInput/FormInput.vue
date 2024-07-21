@@ -4,6 +4,7 @@ defineProps<{
   name: string;
   modelValue: string;
   type?: 'text' | 'password' | 'email';
+  size?: 'small' | 'medium' | 'large';
   required?: boolean;
 }>();
 
@@ -16,7 +17,7 @@ const onInput = (event: Event) => {
 </script>
 
 <template>
-  <div class="form-group">
+  <div class="form-group" :class="size ? size : ''">
     <label :for="name">{{ label }}</label>
     <input
       :id="name"
@@ -33,5 +34,16 @@ const onInput = (event: Event) => {
 .form-group {
   display: flex;
   flex-direction: column;
+}
+.form-group.small input {
+  width: 100px;
+}
+
+.form-group.medium input {
+  width: 200px;
+}
+
+.form-group.large input {
+  width: 300px;
 }
 </style>
