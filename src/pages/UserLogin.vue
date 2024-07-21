@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { FormInput, SubmitButton } from '../components';
+import { FormHelperText, FormInput, SubmitButton } from '../components';
 
 const username = ref('');
 const password = ref('');
@@ -37,6 +37,7 @@ const onSubmit = (event: Event) => {
         v-model="password"
         :required="true"
       />
+      <FormHelperText text="I am important!" />
       <SubmitButton label="login" :disabled="isDisabled" />
     </form>
   </div>
