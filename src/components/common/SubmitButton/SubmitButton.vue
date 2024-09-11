@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { type Component, ref } from 'vue';
 import { addRippleEffect } from './utils';
 
 defineProps<{
   label: string;
   disabled?: boolean;
+  icon?: Component;
 }>();
 
 const buttonRef = ref<HTMLButtonElement | null>(null);
@@ -18,21 +19,20 @@ const handleClick = (event: MouseEvent): void => {
 
 <template>
   <button
-    v-if="disabled"
-    type="submit"
-    @click="handleClick"
     ref="buttonRef"
-    class="disabled"
-    disabled
+    type="submit"
+    :class="{ disabled: disabled }"
+    :disabled="disabled"
+    @click="handleClick"
   >
     {{ label }}
-  </button>
-  <button v-else type="submit" @click="handleClick" ref="buttonRef">
-    {{ label }}
+    <component :is="icon" v-if="icon" class="end-icon" />
   </button>
 </template>
 
 <style scoped>
+@import '../../../assets/base.css';
+
 button {
   display: inline-flex;
   align-items: center;
@@ -43,7 +43,7 @@ button {
   user-select: none;
   vertical-align: middle;
   color: rgba(0, 0, 0, 0.87);
-  background-color: rgb(144, 202, 249);
+  background-color: var(--link);
   border-radius: 4px;
   padding: 6px 16px;
   cursor: pointer;
@@ -64,30 +64,20 @@ button.disabled {
 }
 
 button:hover:not([disabled]) {
-  background-color: rgb(66, 165, 245);
-}
-</style>
-
-<style>
-.ripple {
-  position: absolute;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.3);
-  width: 40px;
-  height: 40px;
-  transform: scale(0);
-  animation: ripple-animation 0.4s linear;
-  pointer-events: none;
+  background-color: var(--link-hover);
+  color: var(--link);
+  fill: var(--link);
 }
 
-@keyframes ripple-animation {
-  from {
-    opacity: 1;
-    transform: scale(0);
-  }
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
+button:focus:not([disabled]) {
+  background-color: var(--link-hover);
+  color: var(--link);
+  fill: var(--link);
+}
+
+.end-icon {
+  margin-right: -4px;
+  margin-left: 8px;
+  display: inline-flex;
 }
 </style>

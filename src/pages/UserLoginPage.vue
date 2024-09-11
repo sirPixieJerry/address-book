@@ -3,7 +3,17 @@ import { LoginForm } from '../components';
 </script>
 
 <template>
-  <LoginForm />
+  <div class="login-root">
+    <LoginForm />
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.login-root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  place-items: center;
+}
+</style>

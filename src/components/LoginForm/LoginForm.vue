@@ -1,9 +1,13 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { FormHelperText, FormInput, SubmitButton } from '../common';
+import { IconLogin } from '../icons';
+import { useRouter } from 'vue-router';
 
 const username = ref('');
 const password = ref('');
+
+const router = useRouter();
 
 const isDisabled = computed(() => {
   return username.value === '' || password.value === '';
@@ -13,12 +17,7 @@ const isUserNameOrPasswordInvalid = false;
 
 const onSubmit = (event: Event) => {
   event.preventDefault();
-  console.log(
-    'Form submitted with Username:',
-    username.value,
-    'Password:',
-    password.value
-  );
+  router.push('/contact-list');
 };
 </script>
 
@@ -26,24 +25,28 @@ const onSubmit = (event: Event) => {
   <div>
     <form action="">
       <FormInput
-        label="Username:"
+        v-model="username"
+        label="Benutzername"
         name="username"
         type="text"
-        v-model="username"
-        :required="true"
       />
       <FormInput
-        label="Password:"
+        v-model="password"
+        label="Passwort"
         name="password"
         type="password"
-        v-model="password"
-        :required="true"
       />
       <FormHelperText
-        text="I am important!"
         v-if="isUserNameOrPasswordInvalid"
+        text="I am important!"
       />
-      <SubmitButton label="login" :disabled="isDisabled" />
+      <SubmitButton
+        aria-label="anmelden"
+        label="anmelden"
+        :disabled="isDisabled"
+        :icon="IconLogin"
+        @click="onSubmit"
+      />
     </form>
   </div>
 </template>
@@ -52,10 +55,6 @@ const onSubmit = (event: Event) => {
 form {
   display: flex;
   flex-direction: column;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
+  gap: 8px;
 }
 </style>

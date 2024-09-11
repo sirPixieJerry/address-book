@@ -1,0 +1,239 @@
+[
+  {
+    "firstName": "Peter",
+    "lastName": "Müller",
+    "email": "peter.mueller@example.com",
+    "addresses": [
+      {
+        "streetName": "Bahnhofstraße",
+        "streetNumber": "1",
+        "zipCode": "60311",
+        "city": "Frankfurt"
+      }
+    ],
+    "phoneNumbers": [
+      {
+        "phoneNumber": "+49-69-33445566"
+      }
+    ]
+  },
+  {
+    "firstName": "Sabine",
+    "lastName": "Schneider",
+    "email": "sabine.schneider@example.com",
+    "addresses": [
+      {
+        "streetName": "Gartenweg",
+        "streetNumber": "8",
+        "zipCode": "50667",
+        "city": "Köln"
+      }
+    ],
+    "phoneNumbers": [
+      {
+        "phoneNumber": "+49-221-77889900"
+      }
+    ]
+  },
+  {
+    "firstName": "Klaus",
+    "lastName": "Fischer",
+    "email": "klaus.fischer@example.com",
+    "addresses": [
+      {
+        "streetName": "Ringstraße",
+        "streetNumber": "12",
+        "zipCode": "70173",
+        "city": "Stuttgart"
+      }
+    ],
+    "phoneNumbers": []
+  },
+  {
+    "firstName": "Julia",
+    "lastName": "Weber",
+    "email": "julia.weber@example.com",
+    "addresses": [],
+    "phoneNumbers": [
+      {
+        "phoneNumber": "+49-30-22334455"
+      }
+    ]
+  },
+  {
+    "firstName": "Thomas",
+    "lastName": "Schulz",
+    "email": "thomas.schulz@example.com",
+    "addresses": [
+      {
+        "streetName": "Hauptstraße",
+        "streetNumber": "99",
+        "zipCode": "55116",
+        "city": "Mainz"
+      },
+      {
+        "streetName": "Nebenstraße",
+        "streetNumber": "15",
+        "zipCode": "89073",
+        "city": "Ulm"
+      }
+    ],
+    "phoneNumbers": []
+  },
+  {
+    "firstName": "Lisa",
+    "lastName": "Hofmann",
+    "email": "lisa.hofmann@example.com",
+    "addresses": [
+      {
+        "streetName": "Marktplatz",
+        "streetNumber": "2",
+        "zipCode": "90402",
+        "city": "Nürnberg"
+      }
+    ],
+    "phoneNumbers": [
+      {
+        "phoneNumber": "+49-911-55667788"
+      }
+    ]
+  },
+  {
+    "firstName": "Michael",
+    "lastName": "Koch",
+    "email": "michael.koch@example.com",
+    "addresses": [],
+    "phoneNumbers": []
+  },
+  {
+    "firstName": "Anna",
+    "lastName": "Richter",
+    "email": "anna.richter@example.com",
+    "addresses": [
+      {
+        "streetName": "Blumenstraße",
+        "streetNumber": "18",
+        "zipCode": "80335",
+        "city": "München"
+      }
+    ],
+    "phoneNumbers": []
+  },
+  {
+    "firstName": "Jürgen",
+    "lastName": "Krause",
+    "email": "juergen.krause@example.com",
+    "addresses": [],
+    "phoneNumbers": [
+      {
+        "phoneNumber": "+49-40-44556677"
+      }
+    ]
+  },
+  {
+    "firstName": "Sophie",
+    "lastName": "Lehmann",
+    "email": "sophie.lehmann@example.com",
+    "addresses": [
+      {
+        "streetName": "Schillerstraße",
+        "streetNumber": "77",
+        "zipCode": "04109",
+        "city": "Leipzig"
+      }
+    ],
+    "phoneNumbers": []
+  },
+  {
+    "firstName": "Fabian",
+    "lastName": "Bauer",
+    "email": "fabian.bauer@example.com",
+    "addresses": [
+      {
+        "streetName": "Goethestraße",
+        "streetNumber": "4",
+        "zipCode": "80331",
+        "city": "München"
+      }
+    ],
+    "phoneNumbers": [
+      {
+        "phoneNumber": "+49-89-12345678"
+      }
+    ]
+  },
+  {
+    "firstName": "Melanie",
+    "lastName": "Wolf",
+    "email": "melanie.wolf@example.com",
+    "addresses": [
+      {
+        "streetName": "Waldweg",
+        "streetNumber": "9",
+        "zipCode": "93047",
+        "city": "Regensburg"
+      }
+    ],
+    "phoneNumbers": []
+  },
+
+  {
+    "firstName": "Max",
+    "lastName": "Mustermann",
+    "email": "max.mustermann@example.com",
+    "addresses": [
+      {
+        "streetName": "Musterstraße",
+        "streetNumber": "123",
+        "zipCode": "10115",
+        "city": "Berlin"
+      },
+      {
+        "streetName": "Beispielweg",
+        "streetNumber": "456",
+        "zipCode": "80331",
+        "city": "München"
+      }
+    ],
+    "phoneNumbers": [
+      {
+        "phoneNumber": "+49-30-1234567"
+      },
+      {
+        "phoneNumber": "+49-89-9876543"
+      }
+    ]
+  },
+  {
+    "firstName": "Erika",
+    "lastName": "Musterfrau",
+    "email": "erika.musterfrau@example.com",
+    "addresses": [
+      {
+        "streetName": "Hauptstraße",
+        "streetNumber": "789",
+        "zipCode": "20095",
+        "city": "Hamburg"
+      }
+    ],
+    "phoneNumbers": []
+  },
+  {
+    "firstName": "Hans",
+    "lastName": "Schmidt",
+    "email": "hans.schmidt@example.com",
+    "addresses": [],
+    "phoneNumbers": [
+      {
+        "phoneNumber": "+49-69-11223344"
+      }
+    ]
+  },
+  {
+    "firstName": "Laura",
+    "lastName": "Meier",
+    "email": "laura.meier@example.com",
+    "addresses": [],
+    "phoneNumbers": []
+  }
+]

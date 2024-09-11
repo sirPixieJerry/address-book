@@ -1,0 +1,9 @@
+export { default as IconAdd } from './IconAdd.vue';
+export { default as IconClose } from './IconClose.vue';
+export { default as IconEmail } from './IconEmail.vue';
+export { default as IconHomeWork } from './IconHomeWork.vue';
+export { default as IconLocalPhone } from './IconLocalPhone.vue';
+export { default as IconLogin } from './IconLogin.vue';
+export { default as IconLogout } from './IconLogout.vue';
+export { default as IconRemove } from './IconRemove.vue';
+export { default as IconSave } from './IconSave.vue';

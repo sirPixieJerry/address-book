@@ -1,41 +1,81 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import { FormInput, SubmitButton } from '../common';
-import { CreateAddressForm } from './CreateAddressForm';
-import { CreatePhoneNumberForm } from './CreatePhoneNumberForm';
+import { computed } from 'vue';
+import { SubmitButton, FormSection, IconButton } from '../common';
+import { AddContact } from './AddContact';
+import { AddAddress } from './AddAddress';
+import { AddPhoneNumber } from './AddPhoneNumber';
+import { IconSave, IconClose } from '../icons';
+import { useFormState } from './store';
+import type { CreateContactType } from './types';
+import { useFormContext } from './store/useFormContext';
+import { initialState } from './formSetup';
+import { useContactList } from '../ContactList/store';
 
-const firstName = ref('');
-const lastName = ref('');
-const email = ref('');
+const props = defineProps<{
+  closeDialog: () => void;
+}>();
+
+const { setForm, getForm, formState } = useFormState<CreateContactType>();
+const { validateForm, reset } =
+  useFormContext<CreateContactType>('createContact');
+const { addContact } = useContactList();
+
+setForm('createContact', initialState);
+
+const handleSubmit = (evt: Event) => {
+  evt.preventDefault();
+  validateForm();
+  // 🚩This is a temporary approach because a mock server doesn't exist yet!
+  // 🚩So there are no tests!
+  if (!(formState[0].errors.length === 0)) return;
+  addContact(formState[0].formValues);
+  reset();
+  props.closeDialog();
+};
+
+const form = computed(() => getForm('createContact'));
 </script>
 
 <template>
-  <div>
-    <FormInput
-      label="firstname:"
-      name="firstname"
-      type="text"
-      v-model="firstName"
-      :required="true"
-    />
-    <FormInput
-      label="lastname:"
-      name="lastname"
-      type="text"
-      v-model="lastName"
-      :required="true"
-    />
-    <FormInput
-      label="email:"
-      name="email"
-      type="text"
-      v-model="email"
-      :required="true"
-    />
-    <CreateAddressForm />
-    <CreatePhoneNumberForm />
-    <SubmitButton label="save contact" />
+  <div class="button-wrapper">
+    <IconButton :icon="IconClose" @click="closeDialog" />
   </div>
+  <form v-if="form" class="create-contact-form">
+    <FormSection legend="Kontaktdetails:">
+      <AddContact />
+    </FormSection>
+    <FormSection legend="Kontaktadressen:">
+      <AddAddress
+        v-for="(_item, index) in form.formValues.addresses"
+        :key="index"
+        :index="index"
+      />
+    </FormSection>
+    <FormSection legend="Kontaktnummern:">
+      <AddPhoneNumber
+        v-for="(_item, index) in form.formValues.phoneNumbers"
+        :key="index"
+        :index="index"
+      />
+    </FormSection>
+    <SubmitButton
+      label="speichern"
+      aria-label="Kontakt speichern"
+      :icon="IconSave"
+      @click="handleSubmit"
+    />
+  </form>
 </template>
 
-<style scoped></style>
+<style scoped>
+.button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.create-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+</style>
